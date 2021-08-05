@@ -9,33 +9,35 @@ export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
   ref
 ) {
   const {
-    type,
-    size = 400,
+    variant,
     isOutline = false,
     color = 'currentColor',
     shapeProps,
-    ...svgProps
+    ...restProps
   } = props;
 
-  const {path: svgPath} = useMemo(() => {
-    return blobshape({
-      size,
-      growth: shapeProps?.growth ?? 6,
-      edges: shapeProps?.edges ?? 6,
-      seed: shapeProps?.seed,
-    });
-  }, [size, shapeProps]);
+  const size = shapeProps?.size ?? 200;
+  const growth = shapeProps?.growth ?? 6;
+  const edges = shapeProps?.edges ?? 6;
+  const seed = shapeProps?.seed ?? 6;
+
+  const {path: svgPath} = useMemo(
+    () =>
+      blobshape({
+        size,
+        growth,
+        edges,
+        seed,
+      }),
+    [size, growth, edges, seed]
+  );
 
   const pathProps: React.SVGProps<SVGPathElement> = {
     fill: color,
   };
 
-  if (type === 'gradient') {
+  if (variant === 'gradient') {
     pathProps.fill = 'url(#gradient)';
-  }
-
-  if (type === 'gradient' && isOutline) {
-    pathProps.stroke = 'url(#gradient)';
   }
 
   if (isOutline) {
@@ -44,18 +46,22 @@ export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
     pathProps.stroke = color;
   }
 
-  const {colors, pattern, image, ...restProps} = svgProps as any;
+  if (variant === 'gradient' && isOutline) {
+    pathProps.stroke = 'url(#gradient)';
+  }
+
+  const {colors, pattern, image, ...svgProps} = restProps as any;
 
   return (
     <svg
       ref={ref}
-      {...restProps}
+      {...svgProps}
       viewBox={`0 0 ${size} ${size}`}
       xmlns='http://www.w3.org/2000/svg'
       xmlnsXlink='http://www.w3.org/1999/xlink'>
-      {props.type === 'solid' && <path d={svgPath} {...pathProps} />}
+      {props.variant === 'solid' && <path d={svgPath} {...pathProps} />}
 
-      {props.type === 'gradient' && (
+      {props.variant === 'gradient' && (
         <>
           <defs>
             <linearGradient id='gradient' x1='0%' y1='0%' x2='0%' y2='100%'>
@@ -67,7 +73,7 @@ export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
         </>
       )}
 
-      {props.type === 'pattern' && (
+      {props.variant === 'pattern' && (
         <>
           <defs>
             <pattern
@@ -85,7 +91,7 @@ export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
         </>
       )}
 
-      {props.type === 'image' && (
+      {props.variant === 'image' && (
         <>
           <defs>
             <clipPath id='shape'>

@@ -22,14 +22,14 @@ $ yarn add react-svg-blob
 ```jsx
 import {SvgBlob} from 'react-svg-blob';
 
-<SvgBlob type='solid' color='#00cec9' />;
+<SvgBlob variant='solid' color='#00cec9' />;
 
-<SvgBlob type='gradient' colors={['#2980B9', '#6DD5FA']} />
+<SvgBlob variant='gradient' colors={['#2980B9', '#6DD5FA']} />
 
-<SvgBlob type='pattern' pattern='cross' color='#d1d8e0' isOutline />
+<SvgBlob variant='pattern' pattern='cross' color='#d1d8e0' isOutline />
 
 <SvgBlob
-  type='image'
+  variant='image'
   image='https://source.unsplash.com/random/600x600/?plants'
 />
 ```
@@ -38,9 +38,9 @@ import {SvgBlob} from 'react-svg-blob';
 
 |    parameter     |               type                |   default   | description                                                                           |
 | :--------------: | :-------------------------------: | :---------: | :------------------------------------------------------------------------------------ |
-|       type       | `solid\|gradient\|pattern\|image` | `undefined` | The type of shape. Required `true`                                                    |
-|       size       |             `number`              |    `400`    | SVG blob path size. Should be equals to width of wrap element.                        |
+|     variant      | `solid\|gradient\|pattern\|image` | `undefined` | The variant type of shape. Required `true`                                            |
 |    isOutline     |             `boolean`             |   `false`   |                                                                                       |
+| shapeProps.size  |             `number`              |    `200`    | SVG blob path size. Should be equals to width of wrap element                         |
 | shapeProps.grow  |             `number`              |     `6`     | Minimum size of the blob in percentage. More the smaller more the randomness          |
 | shapeProps.edges |             `number`              |     `6`     | Total nodes to create a shape. Increasing this value will add complexity to the shape |
 | shapeProps.seed  |             `string`              |   `null`    | It can be used to get same shape                                                      |

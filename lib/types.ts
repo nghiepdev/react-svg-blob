@@ -1,38 +1,38 @@
 import * as Patterns from './patterns';
 
 export interface SvgBlobShapeProps {
-  growth: number;
-  edges: number;
+  size?: number;
+  growth?: number;
+  edges?: number;
   seed?: string;
 }
 
 interface BaseProps
   extends Omit<
     React.SVGAttributes<SVGSVGElement>,
-    'viewBox' | 'xmlns' | 'xmlnsXlink' | 'type'
+    'viewBox' | 'xmlns' | 'xmlnsXlink'
   > {
-  type: unknown;
-  size?: number;
+  variant: unknown;
   isOutline?: boolean;
   shapeProps?: SvgBlobShapeProps;
 }
 
 interface SvgSolidProps extends BaseProps {
-  type: 'solid';
+  variant: 'solid';
 }
 
 interface SvgGradientProps extends BaseProps {
-  type: 'gradient';
+  variant: 'gradient';
   colors: [string, string];
 }
 
 interface SvgPatternProps extends BaseProps {
-  type: 'pattern';
+  variant: 'pattern';
   pattern: keyof typeof Patterns;
 }
 
 interface SvgImageProps extends BaseProps {
-  type: 'image';
+  variant: 'image';
   image: string;
 }
 

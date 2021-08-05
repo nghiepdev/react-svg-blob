@@ -7,6 +7,10 @@
   "files": [
     "dist"
   ],
+  "scripts": {
+    "build": "tsc",
+    "prepublishOnly": "npm run build"
+  },
   "dependencies": {
     "blobshape": "^1.0.0"
   },
@@ -16,10 +20,6 @@
   },
   "peerDependencies": {
     "react": ">=16.8"
-  },
-  "scripts": {
-    "build": "tsc",
-    "prepublishOnly": "npm run build"
   },
   "homepage": "https://github.com/nghiepit/react-svg-blob",
   "repository": {
