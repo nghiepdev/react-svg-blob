@@ -4,7 +4,7 @@ import blobshape from 'blobshape';
 import * as Patterns from './patterns';
 import {SvgBlobProps} from './types';
 
-const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
+export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
   props,
   ref
 ) {
@@ -106,5 +106,3 @@ const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
     </svg>
   );
 });
-
-export default SvgBlob;
