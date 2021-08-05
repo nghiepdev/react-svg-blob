@@ -1,9 +1,11 @@
 # REACT-SVG-BLOB
 
-React SVG Blob Generator
+React SVG Blob Generator. Inspired by [blob shapes app](https://github.com/lokesh-coder/blobs.app) original
 
 [![NPM version](https://img.shields.io/npm/v/react-svg-blob.svg)](https://www.npmjs.com/package/react-svg-blob)
 [![NPM monthly download](https://img.shields.io/npm/dm/react-svg-blob.svg)](https://www.npmjs.com/package/react-svg-blob)
+
+[![react-svg-blob](screenshot.png)](https://codesandbox.io/s/react-svg-blob-kuzpc)
 
 ## Demo
 
