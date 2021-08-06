@@ -1,7 +1,6 @@
 import React, {useMemo, forwardRef} from 'react';
 import blobshape from 'blobshape';
 
-import * as Patterns from './patterns';
 import {SvgBlobProps} from './types';
 
 export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
@@ -80,11 +79,11 @@ export const SvgBlob = forwardRef<SVGSVGElement, SvgBlobProps>(function SvgBlob(
               id='pattern'
               x='0'
               y='0'
-              width={Patterns[props.pattern].width}
-              height={Patterns[props.pattern].height}
+              width={props.pattern.width}
+              height={props.pattern.height}
               patternUnits='userSpaceOnUse'
               fill={color}>
-              <path d={Patterns[props.pattern].path} />
+              <path d={props.pattern.path} />
             </pattern>
           </defs>
           <path d={svgPath} {...pathProps} fill='url(#pattern)' />

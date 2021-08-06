@@ -1,11 +1,14 @@
-import * as Patterns from './patterns';
-
-export interface SvgBlobShapeProps {
+export interface ShapeProps {
   size?: number;
   growth?: number;
   edges?: number;
   seed?: string;
 }
+
+type PatternProps = Pick<
+  React.SVGAttributes<SVGPatternElement>,
+  'width' | 'height' | 'path'
+>;
 
 interface BaseProps
   extends Omit<
@@ -14,7 +17,7 @@ interface BaseProps
   > {
   variant: unknown;
   isOutline?: boolean;
-  shapeProps?: SvgBlobShapeProps;
+  shapeProps?: ShapeProps;
 }
 
 interface SvgSolidProps extends BaseProps {
@@ -28,7 +31,7 @@ interface SvgGradientProps extends BaseProps {
 
 interface SvgPatternProps extends BaseProps {
   variant: 'pattern';
-  pattern: keyof typeof Patterns;
+  pattern: PatternProps;
 }
 
 interface SvgImageProps extends BaseProps {
