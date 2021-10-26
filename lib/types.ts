@@ -5,7 +5,7 @@ export interface ShapeProps {
   seed?: string;
 }
 
-type PatternProps = Pick<
+export type PatternProps = Pick<
   React.SVGAttributes<SVGPatternElement>,
   'width' | 'height' | 'path'
 >;
