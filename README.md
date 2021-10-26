@@ -48,6 +48,10 @@ import {cross as crossPattern} from 'react-svg-blob/dist/lib/patterns';
 
 > We provide some patterns ready to use. You can find more of the pattern at [Hero Patterns](https://www.heropatterns.com/)
 
+## Screenshot examples
+
+<img  src="demo_0.jpg" height="180" alt="demo_0" ><img  src="demo_1.jpg" height="180" alt="demo_1"><img  src="demo_2.jpg" height="180" alt="demo_2">
+
 ## License
 
 MIT
