@@ -44,7 +44,7 @@ import {cross as crossPattern} from 'react-svg-blob/dist/lib/patterns';
 | shapeProps.size  |             `number`              |    `200`    | SVG blob path size                                                                    |
 | shapeProps.grow  |             `number`              |     `6`     | Minimum size of the blob in percentage. More the smaller more the randomness          |
 | shapeProps.edges |             `number`              |     `6`     | Total nodes to create a shape. Increasing this value will add complexity to the shape |
-| shapeProps.seed  |             `string`              | `undefined` | It can be used to get same shape                                                      |
+| shapeProps.seed  |             `number`              | `undefined` | It can be used to get same shape                                                      |
 
 > We provide some patterns ready to use. You can find more of the pattern at [Hero Patterns](https://www.heropatterns.com/)
 

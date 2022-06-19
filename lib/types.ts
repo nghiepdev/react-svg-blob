@@ -2,7 +2,7 @@ export interface ShapeProps {
   size?: number;
   growth?: number;
   edges?: number;
-  seed?: string;
+  seed?: number;
 }
 
 export type PatternProps = Pick<
