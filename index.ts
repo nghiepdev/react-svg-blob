@@ -1,2 +1,2 @@
-export * from './lib/SvgBlob';
+export {SvgBlob} from './lib/react-svg-blob';
 export * from './lib/types';
